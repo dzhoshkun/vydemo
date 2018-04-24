@@ -13,7 +13,7 @@ def let_the_sun_shine():
     filepath = resource_filename(__name__,
                                  os.path.join('data', 'sunny-river.mp4'))
     video_reader = LocalVideoReader(filepath)
-    video_player = VideoPlayer(color=ColourSpace.BGRA, size=(480, 720))
+    video_player = VideoPlayer(color=ColourSpace.RGB, size=(480, 720))
     video_reader.attach(video_player)
     video_reader.start()
     App(video_player).run()
