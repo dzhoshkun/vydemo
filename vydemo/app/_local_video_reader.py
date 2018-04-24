@@ -21,7 +21,7 @@ class LocalVideoReader(IObservable, threading.Thread):
         if self.running:
             return
         self.running = True
-        inter_frame_interval = None
+        inter_frame_interval = 0.1
         if 'CAP_PROP_FPS' in dir(cv2):
             frame_rate_attribute = cv2.CAP_PROP_FPS
         elif 'cv' in dir(cv2):
