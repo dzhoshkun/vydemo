@@ -1,2 +1,4 @@
 class ColourSpace(object):
-    pass
+    BGRA = 'bgra'
+    I420 = 'i420'
+    UYVY = 'uyvy'
