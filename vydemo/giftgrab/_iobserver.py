@@ -1,2 +1,4 @@
 class IObserver(object):
-    pass
+
+    def update(self, image):
+        raise NotImplementedError
