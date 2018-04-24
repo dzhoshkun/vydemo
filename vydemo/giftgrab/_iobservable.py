@@ -1,0 +1,2 @@
+class IObservable(object):
+    pass
