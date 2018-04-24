@@ -1,0 +1,2 @@
+class ColourSpace(object):
+    pass
