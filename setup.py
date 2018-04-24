@@ -8,4 +8,7 @@ setup(
     name='vydemo',
     description=description,
     packages=find_packages(),
+    package_data={
+        'vydemo.app': ['data/*.mp4'],
+    }
 )
