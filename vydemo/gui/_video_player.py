@@ -1,6 +1,6 @@
 import pygame.display
 import pygame.time
-import pygame.surface
+import pygame.image
 import pygame.event
 from vydemo.giftgrab import IObserver
 
@@ -12,7 +12,6 @@ class VideoPlayer(IObserver):
         self.size = size
         self.display = pygame.display.set_mode(self.size, 0)
         self.clock = pygame.time.Clock()
-        self.snapshot = pygame.surface.Surface(self.size, 0, self.display)
         self.running = False
 
     def run(self):
@@ -29,4 +28,9 @@ class VideoPlayer(IObserver):
             self.clock.tick()
 
     def update(self, image):
-        print('update')
+        if not self.running:
+            return
+        # TODO: FORMAT
+        surface = pygame.image.frombuffer(image.data.ravel(), image.shape, 'RGB')
+        self.display.blit(surface, (0, 0))
+        pygame.display.flip()
