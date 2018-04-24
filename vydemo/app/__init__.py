@@ -5,6 +5,10 @@ from vydemo.giftgrab import ColourSpace
 from ._local_video_reader import LocalVideoReader
 
 
+def main():
+    let_the_sun_shine()
+
+
 def let_the_sun_shine():
     filepath = resource_filename(__name__,
                                  os.path.join('data', 'sunny-river.mp4'))

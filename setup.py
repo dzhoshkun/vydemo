@@ -13,7 +13,7 @@ setup(
     },
     entry_points={
         'console_scripts': [
-            'vydemo-let-the-sun-shine = vydemo.app:let_the_sun_shine',
+            'vydemo = vydemo.app:main',
         ],
     }
 )
