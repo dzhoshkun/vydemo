@@ -31,6 +31,8 @@ class VideoPlayer(IObserver):
         if not self.running:
             return
         # TODO: FORMAT
-        surface = pygame.image.frombuffer(image.data.ravel(), image.shape, 'RGB')
+        surface = pygame.image.frombuffer(image.data.transpose(1, 0, 2).ravel(),
+                                          image.shape,
+                                          'RGB')
         self.display.blit(surface, (0, 0))
         pygame.display.flip()
