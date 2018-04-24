@@ -40,4 +40,5 @@ class LocalVideoReader(IObservable, threading.Thread):
                     self.video.release()
                     self.video = None
             time.sleep(inter_frame_interval)
+        self.video.release()
         self.video = None
