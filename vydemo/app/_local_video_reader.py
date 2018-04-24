@@ -32,8 +32,9 @@ class LocalVideoReader(IObservable, threading.Thread):
                 inter_frame_interval = 1.0 / self.video.get(frame_rate_attribute)
             if self.video:
                 ret, data = self.video.read()
-                image = VideoFrame(ColourSpace.BGRA, data, data.shape[:2])
-                for observer in self.observers:
-                    observer.update(image)
+                if ret:
+                    image = VideoFrame(ColourSpace.BGRA, data, data.shape[:2])
+                    for observer in self.observers:
+                        observer.update(image)
             time.sleep(inter_frame_interval)
         self.video = None
