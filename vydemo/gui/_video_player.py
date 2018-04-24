@@ -13,15 +13,18 @@ class VideoPlayer(IObserver):
         self.display = pygame.display.set_mode(self.size, 0)
         self.clock = pygame.time.Clock()
         self.snapshot = pygame.surface.Surface(self.size, 0, self.display)
+        self.running = False
 
     def run(self):
-        running = True
-        while running:
+        if self.running:
+            return
+        self.running = True
+        while self.running:
             events = pygame.event.get()
             for e in events:
                 if e.type == pygame.QUIT or \
                    (e.type == pygame.KEYDOWN and e.key == pygame.K_ESCAPE):
-                    running = False
+                    self.running = False
 
             self.clock.tick()
 
