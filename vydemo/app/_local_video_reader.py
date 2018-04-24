@@ -33,8 +33,8 @@ class LocalVideoReader(IObservable, threading.Thread):
             if self.video:
                 ret, data = self.video.read()
                 if ret:
-                    data_rgb = cv2.cvtColor(data, cv2.COLOR_BGR2RGB)
-                    image = VideoFrame(ColourSpace.RGB, data_rgb, data_rgb.shape[:2])
+                    data = cv2.cvtColor(data, cv2.COLOR_BGR2RGB)
+                    image = VideoFrame(ColourSpace.RGB, data, data.shape[:2])
                     for observer in self.observers:
                         observer.update(image)
                 else:
