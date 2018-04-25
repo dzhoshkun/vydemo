@@ -15,5 +15,6 @@ setup(
         'console_scripts': [
             'vydemo = vydemo.app:main',
         ],
-    }
+    },
+    install_requires=['Pygame'],
 )
