@@ -1,7 +1,12 @@
 import time
 import threading
-import cv2
 from vydemo.giftgrab import (IObservable, VideoFrame, ColourSpace)
+try:
+    import cv2
+except ImportError as opencv_error:
+    print('OpenCV is needed for reading video files.'
+          '\nPlease see https://opencv.org/ for installing OpenCV.')
+    exit(1)
 
 
 class LocalVideoReader(IObservable, threading.Thread):
