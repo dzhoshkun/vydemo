@@ -3,3 +3,4 @@ class ColourSpace(object):
     I420 = 'i420'
     UYVY = 'uyvy'
     RGB = 'rgb'
+    RGBA = 'rgba'
