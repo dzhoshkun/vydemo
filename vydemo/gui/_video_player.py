@@ -28,12 +28,13 @@ class VideoPlayer(IObserver):
 
             self.clock.tick()
 
-    def update(self, image):
+    def update(self, frame):
         if not self.running:
             return
         # TODO: FORMAT
-        surface = pygame.image.frombuffer(image.data.ravel(),
-                                          image.shape[::-1],
-                                          'RGBA')
+        data = frame.data(True)
+        surface = pygame.image.frombuffer(
+            data.ravel(), data.shape[:2][::-1], 'RGBA'
+        )
         self.display.blit(surface, (0, 0))
         pygame.display.flip()
