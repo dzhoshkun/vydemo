@@ -8,6 +8,7 @@ from vydemo.giftgrab import IObserver
 class VideoPlayer(IObserver):
 
     def __init__(self, color, size):
+        super(VideoPlayer, self).__init__()
         self.color = color
         self.size = size
         self.display = pygame.display.set_mode(self.size, 0)
